@@ -1,96 +1,124 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<title>Bangkal Elementary School - Main</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <title>Laravel</title>
+<link href='https://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+<style>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    h1 {
+        font-family: "Walter Turncoat", cursive;
+        color: white;
+        font-size: 50px;
+    }
 
-            .full-height {
-                height: 100vh;
-            }
+    body {
+        background-image: url('https://i.imgur.com/hbeWizm.jpg');
+    }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    .studentButton {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+        background-image: url('https://i.imgur.com/hbeWizm.jpg');
+        color: white;
+        text-decoration:none; 
+        font-family: "Walter Turncoat", cursive;
+        font-size: 24px;
+        padding-right: 42px;
+        padding-left:  42px;
+        padding-top: 40px;
+        
+    }
 
-            .position-ref {
-                position: relative;
-            }
+    .facultyButton {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+        background-image: url('https://i.imgur.com/hbeWizm.jpg');
+        color: white;
+        font-family: "Walter Turncoat", cursive;
+        font-size: 24px;
+        display: inline-block;
+        padding-right: 40px;
+        padding-left:  40px;
+        padding-top: 40px;
+    }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    .registrarButton {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+        background-image: url('https://i.imgur.com/hbeWizm.jpg');
+        color: white;
+        font-family: "Walter Turncoat", cursive;
+        font-size: 24px;
+        padding-right: 30px;
+        padding-left:  30px;
+        padding-top: 40px;
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
+    }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    .facultyButton:active, .registrarButton:active, .studentButton:active {
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        text-decoration:none; 
+    }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+</style>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+<body>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+<br> <br> <br>
+
+<!-- Header -->
+<header>
+  <div class="w3-center">
+    <h1 class="w3-animate-top">Bangkal Elementary School - Main</h1>
+    <h1 class="w3-animate-bottom">Grade Record Management System</h1>
+  </div>
+</header>
+
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+    <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+        <div class="w3-third w3-margin-bottom">
+            <div class="w3-container">
+                <a href="{{ url('/student/login') }}">
+                    <button class="studentButton">
+                        <i class="fas fa-user-graduate fa-3x"> </i>
+                        <br> <br>  Student
+                    </button>
+                </a>
             </div>
         </div>
-    </body>
+
+        <div class="w3-third w3-margin-bottom">
+            <div class="w3-container">
+                <a href="{{ url('/login') }}">
+                    <button class="facultyButton">
+                        <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                        <br> <br>  Faculty
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+            <div class="w3-container">
+                <a href="{{ url('/registrar/login') }}">
+                    <button class="registrarButton">
+                        <i class="fas fa-registered fa-3x"></i>
+                        <br> <br>  Registrar
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
