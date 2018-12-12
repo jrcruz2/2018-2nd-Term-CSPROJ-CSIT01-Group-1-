@@ -26,8 +26,13 @@ class HomeController extends Controller
         return view('faculty.home');
     }
 
-    public function showClass()
+    public function showAddClass()
     {
-        return view('faculty.class');
+        return view('faculty.add-class');
+    }
+
+    public function showClasses()
+    {
+        return view('faculty.view-classes');
     }
 }

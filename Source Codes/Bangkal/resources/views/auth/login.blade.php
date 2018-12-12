@@ -1,23 +1,9 @@
 @extends('layouts.app')
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
-<style>
-    .w3-lobster {
-        font-family: "Poppins";
-    }
-
-    body {
-        background-image: url('https://i.imgur.com/hbeWizm.jpg');
-    }
-</style>
-
 @section('content')
-<body>
-
-    <div class="w3-card-4 w3-display-middle w3-black" style="width:50%">
+<div class="padding">
+<div class="w3-card-4 w3-display-middle w3-black" style="width:50%">
+    <div class="padding">
         <br>
         <div class="w3-center">
             <i class="fas fa-chalkboard-teacher fa-7x"></i>
@@ -33,6 +19,10 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+
+            @if(Session::has('message'))
+                <div class="w3-panel w3-green w3-card-4" style="padding: 15px;">{{ Session::get('message') }} </div>
+            @endif
 
             <div class="form-group row w3-large">
                 <label for="email" class="col-sm-4 col-form-label text-md-right">
@@ -90,6 +80,5 @@
             </div>
         </form>
     </div>
-</body>
+</div>
 @endsection
-
