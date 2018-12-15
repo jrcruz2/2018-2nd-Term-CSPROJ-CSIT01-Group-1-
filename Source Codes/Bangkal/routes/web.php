@@ -17,23 +17,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('sections', 'SectionController');
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/add-class', 'HomeController@showAddClass');
-Route::get('/view-classes', 'HomeController@showClasses');
-
-    Route::prefix('registrar')->group( function() {
-        Route::get('/login', 'Auth\RegistrarLoginController@showLoginForm')->name('registrar.login');
-        Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
-        Route::get('/', 'RegistrarController@index')->name('registrar.dashboard');
-
-        Route::get('/section-list', 'SectionController@index');
-    });
-
-    Route::prefix('student')->group( function() {
-        Route::get('/login', 'Auth\StudentLoginController@showLoginForm')->name('student.login');
-        Route::post('/login', 'Auth\StudentLoginController@login')->name('student.login.submit');
-        Route::get('/', 'StudentController@index')->name('student.dashboard');
-    });
-
