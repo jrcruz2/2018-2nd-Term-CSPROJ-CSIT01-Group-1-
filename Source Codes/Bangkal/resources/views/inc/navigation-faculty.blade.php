@@ -76,7 +76,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#"><i class="fas fa-plus"></i> Add Class Record</a>
+                        <a href="/classrecords/create"><i class="fas fa-plus"></i> Add Class Record</a>
                     </li>
                     <li>
                         <a href="#"><i class="fas fa-list-ul"></i> View Class Records</a>
