@@ -63,7 +63,7 @@
             <li class="sidebar-brand">
                 <a href="#">
                     <i class="fas fa-user-circle"></i>
-                    {{ Auth::user()->first_name}} {{ Auth::user()->last_name}}
+                    
                 </a>
             </li>
             <li>
@@ -79,7 +79,7 @@
                         <a href="/classrecords/create"><i class="fas fa-plus"></i> Add Class Record</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fas fa-list-ul"></i> View Class Records</a>
+                        <a href="/classrecords"><i class="fas fa-list-ul"></i> View Class Records</a>
                     </li>
                 </ul>
             </li>     

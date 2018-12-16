@@ -25,8 +25,17 @@
 
 <div class="container">
     <div class="card">
+        <div class="container">
+            <br>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>
+            @endif
+        </div>
         <div class="card-body">
             <a href="/classrecords/create" class="btn btn-primary btn-lg"> Create Class Record </a>
+            <a href="/classrecords" class="btn btn-primary btn-lg"> View Class Records </a>
         </div>
     </div>
 </div>

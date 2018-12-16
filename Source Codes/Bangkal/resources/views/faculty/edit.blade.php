@@ -17,42 +17,35 @@
         <div class="col-11">
             <div class="card">
                 <div class="card-header text-center bg-dark text-white">
-                    <h3> Create Class Record </h3>
+                    <h3> Edit Class Record </h3>
                 </div>
                 <br>
-                <div class="container">
-                    @if(count($errors) > 0)
-                        @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger">
-                                <i class="fas fa-exclamation"></i> {{$error}}
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
+
 
                 <div class="card-body">
-                    {!! Form::open(['action' => 'ClassRecordsController@store', 'method' => 'POST']) !!}
+                    {!! Form::open(['action' => ['ClassRecordsController@update', $classrecord->id], 'method' => 'POST']) !!}
                         <div class="form-group row">
                             <div class="col-md-2 col-form-label text-md-right">
                                 {{Form::label('section', 'Section')}}
                             </div>
                             <div class="col-md-10">
-                                {{Form::text('section', '', ['class' => 'form-control', 'placeholder' => 'Section'])}}
+                                {{Form::text('section', $classrecord->section, ['class' => 'form-control', 'placeholder' => 'Section'])}}
                             </div>
                             <div class="col-md-2 col-form-label text-md-right">
                                 {{Form::label('grade_level', 'Grade Level')}}
                             </div>
                             <div class="col-md-10">
-                                {{Form::number('grade_level', '', ['class' => 'form-control', 'placeholder' => 'Grade Level'])}}
+                                {{Form::number('grade_level', $classrecord->grade_level, ['class' => 'form-control', 'placeholder' => 'Grade Level'])}}
                             </div>
                             <div class="col-md-2 col-form-label text-md-right">
                                 {{Form::label('subject', 'Subject')}}
                             </div>
                             <div class="col-md-10">
-                                {{Form::text('subject', '', ['class' => 'form-control', 'placeholder' => 'Subject'])}} 
+                                {{Form::text('subject', $classrecord->subject, ['class' => 'form-control', 'placeholder' => 'Subject'])}} 
                             </div>
                             <div class="col-md-8 offset-md-2">
-                                {{Form::submit('Add Class Record', ['class' => 'btn btn-primary'])}}
+                                {{Form::hidden('_method', 'PUT')}}
+                                {{Form::submit('Update Class Record', ['class' => 'btn btn-primary'])}}
                             </div>
                         </div>
                     {!! Form::close() !!}
@@ -64,4 +57,3 @@
 
 </div>
 @endsection
-
