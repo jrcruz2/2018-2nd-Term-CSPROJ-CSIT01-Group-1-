@@ -1,67 +1,82 @@
-@extends('layouts.faculty-layout')
+@extends('layouts.app')
+
+<style>
+    .button-position {
+        position: absolute;
+        top: 52px;
+        left: 0px;
+    }
+    .content-position {
+        position: absolute;
+        top: 20px;
+    }
+    header {
+        color: white;
+        font-family: "Walter Turncoat", cursive;
+        font-size: 50px;
+    }
+    .table-padding {
+        padding: 10px 10px 10px 10px;
+    }
+
+</style>
 
 @section('content')
-<!-- Page Content -->
-<div id="page-content-wrapper">
-    <div class="container-fluid">
-        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fas fa-align-left"></i> Toggle Menu</a>
+@extends('inc.sidebar-faculty')
+
+<div id="main">
+    <div class="button-position">
+        <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button>
     </div>
-</div>
-<hr>
-<!-- /#page-content-wrapper -->
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-11">
-            <div class="card">
-                <div class="card-header text-center bg-dark text-white">
-                    <h3> Create Class Record </h3>
-                </div>
-                <br>
-                <div class="container">
-                    @if(count($errors) > 0)
-                        @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger">
-                                <i class="fas fa-exclamation"></i> {{$error}}
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
+    <header class="w3-container w3-center w3-padding-48">
+        <a> Create Class Record </a>
+    </header>
 
-                <div class="card-body">
-                    {!! Form::open(['action' => 'ClassRecordsController@store', 'method' => 'POST']) !!}
-                        <div class="form-group row">
-                            <div class="col-md-2 col-form-label text-md-right">
-                                {{Form::label('section', 'Section')}}
-                            </div>
-                            <div class="col-md-10">
-                                {{Form::text('section', '', ['class' => 'form-control', 'placeholder' => 'Section'])}}
-                            </div>
-                            <div class="col-md-2 col-form-label text-md-right">
-                                {{Form::label('grade_level', 'Grade Level')}}
-                            </div>
-                            <div class="col-md-10">
-                                {{Form::number('grade_level', '', ['class' => 'form-control', 'placeholder' => 'Grade Level'])}}
-                            </div>
-                            <div class="col-md-2 col-form-label text-md-right">
-                                {{Form::label('subject', 'Subject')}}
-                            </div>
-                            <div class="col-md-10">
-                                {{Form::text('subject', '', ['class' => 'form-control', 'placeholder' => 'Subject'])}} 
-                            </div>
-                            <div class="col-md-8 offset-md-2">
-                                {{Form::submit('Add Class Record', ['class' => 'btn btn-primary'])}}
-                            </div>
-                        </div>
-                    {!! Form::close() !!}
+    <div class="w3-row">            
+        <div class="w3-col lg 12">
+  
+          <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container">
+                <div class="padding">
+                    <a href="/home" class="btn btn-success btn-lg"> Go Back </a> <br> <br>
+                    <h3><b>Add Class Record</b></h3>
                 </div>
             </div>
+          
+            <div class="w3-container">
+              <div class="padding">
+                    {!! Form::open(['action' => 'ClassRecordController@store', 'method' => 'POST']) !!}
+                        {{ Form::label('section', 'Section Name') }}
+                        {{ Form::text('section', '', ['class' => 'form-control', 'placeholder' => 'Section Name']) }}  
+                        {{ Form::label('grade_level', 'Grade Level') }}
+                        {{ Form::text('grade_level', '', ['class' => 'form-control', 'placeholder' => 'Grade Level']) }} 
+                        {{ Form::label('subject', 'Subject') }} 
+                        {{ Form::text('subject', '', ['class' => 'form-control', 'placeholder' => 'Subject']) }}
+                        <br>
+                        {{Form::submit('Add Class Record', ['class' => 'btn btn-primary btn-lg']) }}
+                    {!! Form::close() !!}
+              </div>
+            </div>
+          </div>
+          <hr>
+  
         </div>
-    </div>
-
-
-</div>
-@endsection
-
+      </div>   
+            
+  </div>
+  
+  <script>
+          function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+          }
+          function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+          }
+  </script>
+  @endsection

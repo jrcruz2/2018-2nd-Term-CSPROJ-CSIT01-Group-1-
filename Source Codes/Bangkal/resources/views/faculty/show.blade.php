@@ -1,66 +1,79 @@
-@extends('layouts.faculty-layout')
+@extends('layouts.app')
+
+<style>
+    .button-position {
+        position: absolute;
+        top: 52px;
+        left: 0px;
+    }
+    .content-position {
+        position: absolute;
+        top: 20px;
+    }
+    header {
+        color: white;
+        font-family: "Walter Turncoat", cursive;
+        font-size: 50px;
+    }
+    .table-padding {
+        padding: 10px 10px 10px 10px;
+    }
+
+</style>
 
 @section('content')
-<!-- Page Content -->
-<div id="page-content-wrapper">
-    <div class="container-fluid">
-        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fas fa-align-left"></i> Toggle Menu</a>
-        <a href="/classrecords" class="btn btn-primary"> Go Back </a>
+@extends('inc.sidebar-faculty')
+
+<div id="main">
+    <div class="button-position">
+        <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button>
     </div>
-</div>
-<hr>
-<!-- /#page-content-wrapper -->
-<div class="container">
-    <div class="row">
-        <div class="col">
-        </div>
-        <div class="col-11">
-            <div class="card">
-                <div class="card-header text-center bg-dark text-white">
-                    <h3> {{$classrecord->section}} </h3>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col"><b>Section Name: {{$classrecord->section}}</b> </div>
-                        <div class="col"><b>Grade Level: {{$classrecord->grade_level}}</b> </div>
-                        <div class="col"><b>Subject: {{$classrecord->subject}}</b> </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <a href="/grades/{{$classrecord->id}}" class="btn btn-primary"> Add Student </a>
-                    </div>
-                    <hr> 
-                    <table class="table table-striped">
-                        <tr>
-                            <th> Student </th>
-                            <th> 1st Grading </th>
-                            <th> 2nd Grading </th>
-                            <th> 3rd Grading </th>
-                            <th> 4th Grading </th>
-                            <th> Final Grade </th>
-                            <th> </th>
-                        </tr>
-                        <tr>
-                            <td> Mark Justine Apit </td>
-                            <td> 98 </td>
-                            <td> 95 </td>
-                            <td> 97 </td>
-                            <td> 98 </td>
-                            <td> 97 </td>
-                            <td> <a href="#" class="btn btn-primary">Edit Grade</a> </td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <div>
-                        <a href="/classrecords/{{$classrecord->id}}/edit" class="btn btn-primary"> Edit {{$classrecord->section}} </a> 
-                        {!!Form::open(['action' => ['ClassRecordsController@destroy', $classrecord->id], 'method' => 'POST', 'class' => 'pull-right'])!!} <br>
-                            {{Form::hidden('_method', 'DELETE')}}
-                            {{Form::submit('Delete Section', ['class' => 'btn btn-danger'])}}
-                        {!!Form::close()!!}
-                    </div>
+
+    <header class="w3-container w3-center w3-padding-48">
+        <a> Viewing Section of {{$classrecord->section}} </a>
+    </header>
+
+    <div class="w3-row">            
+        <div class="w3-col lg 12">
+  
+          <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container">
+                <div class="padding">
+                    <a href="/class" class="btn btn-success"> Go Back </a>
+                    <a href="/class/{{$classrecord->id}}/edit" class="btn btn-success"> Edit </a> 
+                    {!!Form::open(['action' => ['ClassRecordController@destroy', $classrecord->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                        {{Form::hidden('_method', 'DELETE')}} <br>
+                        {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                    {!!Form::close()!!}
+                    <h3><b>Class Record for {{$classrecord->section}} </b></h3> 
+                    <h3><b>Subject: {{$classrecord->subject}} </b></h3> <br>
                 </div>
             </div>
+          
+            <div class="w3-container">
+              <div class="padding">
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+  
         </div>
-    </div>
-</div>
-@endsection
+      </div>   
+            
+  </div>
+  
+  <script>
+          function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+          }
+          function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+          }
+  </script>
+  @endsection

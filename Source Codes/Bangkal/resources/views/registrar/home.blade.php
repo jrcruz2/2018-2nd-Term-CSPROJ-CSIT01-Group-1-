@@ -26,7 +26,7 @@
         <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button>
     </div>
     <header class="w3-container w3-center w3-padding-48">
-        <a> FACULTY HOME </a>
+        <a> REGISTRAR HOME </a>
     </header>
 
     <div class="w3-row">            
@@ -39,23 +39,8 @@
           </div>
         
           <div class="w3-container">
-            <table class="table table-striped">
-                <tr>
-                    <th> Section </th>
-                    <th> Subject </th>
-                    <th> </th>
-                </tr>
-                @foreach($classrecords as $classrecord)
-                    <tr>
-                        <td> {{$classrecord->section}} </td>
-                        <td> {{}}
-                        <td> 
-                            <a href="/class/{{$classrecord->id}}" class="btn btn-success btn-lg"> View </a> 
-                                | 
-                            <a href="/class/{{$classrecord->id}}/edit" class="btn btn-success btn-lg"> Edit </a>
-                        </td>
-                    </tr>
-                @endforeach
+            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed
+              tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
           </div>
         </div>
         <hr>
@@ -77,5 +62,5 @@
           document.getElementById("mySidebar").style.display = "none";
           document.getElementById("openNav").style.display = "inline-block";
         }
-</script>
+        </script>
 @endsection

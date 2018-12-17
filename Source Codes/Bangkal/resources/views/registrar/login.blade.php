@@ -11,13 +11,13 @@
         <br>
         <header>
             <div class="w3-center">
-                <h3 class="w3-xxlarge w3-lobster"> Faculty Login </h3>
+                <h3 class="w3-xxlarge w3-lobster"> Registrar Login </h3>
             </div>
         </header>
 
         <br>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('registrar.login.submit') }}">
             @csrf
 
             @if(Session::has('message'))
