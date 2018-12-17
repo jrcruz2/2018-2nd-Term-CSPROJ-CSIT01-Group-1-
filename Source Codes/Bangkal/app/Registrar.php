@@ -6,9 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Registrar extends Authenticatable
 {
     use Notifiable;
+
+    protected $guard = 'registrar';
 
     /**
      * The attributes that are mass assignable.
@@ -16,10 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'address',
-        'email',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -30,9 +29,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function classrecords()
-    {
-        return $this->hasMany('App\ClassRecord');
-    }
 }

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-class HomeController extends Controller
+class RegistrarController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -14,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:registrar');
     }
 
     /**
@@ -24,8 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('faculty.home')->with('classrecords', $user->classrecords);
+        return view('registrar.home');
     }
 }
